@@ -3,29 +3,28 @@ module.exports = function ZelekieColorfulWhispers(mod) {
     const settings = require(`./settings.json`)
 
     mod.hook('S_WHISPER', 2, { order: 100 }, event => {
-        if (settings.globallyEnabled) {
-            if (mod.game.me.is(event.player) && settings.me.enabled) {
-                // Sent
-                event.message = colorMessage(event.message, settings.me.color)
-                return true
-            }
-            // Received
-            else if (settings.particular.enabled) {
-                for (let character of settings.particular.characters) {
-                    if (character.name.includes(event.authorName)) {
-                        event.message = colorMessage(event.message, character.color)
-                        return true
-                    }
-                }
-                if (settings.others.enabled) {
-                    event.message = colorMessage(event.message, settings.others.color)
+        if (!settings.globallyEnabled) return;
+        if (mod.game.me.is(event.player) && settings.me.enabled) {
+            // Sent
+            event.message = colorMessage(event.message, settings.me.color)
+            return true
+        }
+        // Received
+        else if (settings.particular.enabled) {
+            for (let character of settings.particular.characters) {
+                if (character.name.includes(event.authorName)) {
+                    event.message = colorMessage(event.message, character.color)
                     return true
                 }
             }
-            else if (settings.others.enabled) {
+            if (settings.others.enabled) {
                 event.message = colorMessage(event.message, settings.others.color)
                 return true
             }
+        }
+        else if (settings.others.enabled) {
+            event.message = colorMessage(event.message, settings.others.color)
+            return true
         }
     })
     // Simple function to replace <FONT> with the desired color
