@@ -12,7 +12,7 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 			return true;
 		}
 		// Received
-		if(settings.particular.enabled){ // todo: rewrite in a more proper way
+		if(settings.particular.enabled){
 			for (let character of settings.particular.characters){
 				if (character.name.includes(event.authorName)){
 					event.message = colorMessage(event.message, character.color);
@@ -29,18 +29,11 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 			return true;
 		}
 	});
-	
-	/* Dunno if this is needed at all :swblob:
-	mod.hook('S_FRIEND_LIST', 1, { order: 100 }, event => {
-		event.friends.forEach(function(element) { friendList[element.name] = true })
-	})
-	*/
-	
+
 	// Gather friend list
 	mod.hook('S_UPDATE_FRIEND_INFO', 1, { order: 100 }, event => {
 		event.friends.forEach(function(element) { friendList[element.name] = true })
 	})
-
 	// Clean up past friends :( / WTB S opcode
 	mod.hook('C_DELETE_FRIEND', 1, { order: 100 }, event => { delete friendList[event.name]  })
 	
@@ -49,6 +42,7 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 	function colorMessage(Message, Color) {
 		return Message.replace(/<FONT>/g, ('<FONT COLOR=\"' + Color + '\">'))
 	}
+
 	// Commands ugly big fat thingy
 	mod.command.add('cw', {
 		on() {
