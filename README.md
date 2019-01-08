@@ -1,4 +1,4 @@
-### **What does this do?**
+### **What is this OwO?**
 
 The main usage of this script is to color whispers received and sent with colors of choice through an easy to use configurable file.
 
@@ -12,8 +12,8 @@ All of this works clientsided. Nothing you sent is changed.
 
 #### Usage
 
-1. Install it(duh).
-2. Edit `settings.json` to colorize. Me -> Obviously your whispers | Others -> Obviously others whispers | particular -> Name based whispers, you can state them both a single string or array of strings to target as many people you want in different ways.
+1. Have the module installed.
+2. Edit `settings.json` to colorize. `me -> your whispers` | `friends -> your friends` | `others -> other people whispers` | `particular -> name based whispers, you can state them both a single string or array of strings to target as many people you want in different ways.`
 3. There's some commands below, most of them are useless.
 
 *What the heck is a color in hex tho??*: https://www.hexcolortool.com/
@@ -23,15 +23,12 @@ All of this works clientsided. Nothing you sent is changed.
 
 * ***`cw`***  *`[on/off]`* turns on and off the whole module functionalities. Simple.
 ######
-* ***`cw`*** *`[me/others/particular]` `[on/off]`* turns on and off specific module functionalities.
+* ***`cw`*** *`[me/friends/others/particular]` `[on/off]`* turns on and off specific module functionalities.
 ######
 * ***`cw`*** ***`color`*** *`#hexcolor`* Sends a message directly from your cute kouhai to get an idea of how the color of choice would look in game.
 
-###### Credits
+#### Other people credits
 
-* Me.
-* Caalitos because it autoupdoots thx to him.
-* Mushu cuz she wrote the first version of the js proxy.
-* Salty cuz he helped making my code actually work.
-* babbu cuz he's a qt.
 * All the people i randomly whispered when testing.
+* TerableCoder for the friend coloring.
+* In general anyone working in tera-proxy that makes this possible ^w^.

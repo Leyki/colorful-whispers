@@ -1,33 +1,44 @@
 module.exports = function ZelekieColorfulWhispers(mod) {
 
-	const settings = require(`./settings.json`)
+	const settings = require(`./settings.json`); // todo: migrate settings to caali's format.
+	let friendList = [];
 
-	mod.hook('S_WHISPER', 2, { order: 100 }, event => {
-		if (!settings.globallyEnabled) return
+	mod.hook('S_WHISPER', 2, { order: 100 }, event => { // Does this even work with potty mouth?
+		if (!settings.globallyEnabled) return;
 
-		if (mod.game.me.is(event.player) && settings.me.enabled) {
+		if(mod.game.me.is(event.player) && settings.me.enabled){
 			// Sent
-			event.message = colorMessage(event.message, settings.me.color)
-			return true
+			event.message = colorMessage(event.message, settings.me.color);
+			return true;
 		}
 		// Received
-		else if (settings.particular.enabled) {
-			for (let character of settings.particular.characters) {
-				if (character.name.includes(event.authorName)) {
-					event.message = colorMessage(event.message, character.color)
-					return true
+		if(settings.particular.enabled){ // todo: rewrite in a more proper way
+			for (let character of settings.particular.characters){
+				if (character.name.includes(event.authorName)){
+					event.message = colorMessage(event.message, character.color);
+					return true;
 				}
 			}
-			if (settings.others.enabled) {
-				event.message = colorMessage(event.message, settings.others.color)
-				return true
+		}
+		if(settings.friends.enabled){ // ...
+			for (let friend of friendList){
+				if(friend.name == event.authorName){
+					event.message = colorMessage(event.message, settings.friends.color);
+					return true;
+				}
 			}
 		}
-		else if (settings.others.enabled) {
-			event.message = colorMessage(event.message, settings.others.color)
-			return true
+		if(settings.others.enabled){
+			event.message = colorMessage(event.message, settings.others.color);
+			return true;
 		}
-	})
+	});
+	
+	mod.hook('S_FRIEND_LIST', 1, { order: 100 }, event => { friendList = event.friends; }); // ...
+	
+	mod.hook('S_UPDATE_FRIEND_INFO', 1, { order: 100 }, event => { friendList = event.friends; });
+	
+	
 	// Simple function to replace <FONT> with the desired color
 	function colorMessage(Message, Color) {
 		return Message.replace(/<FONT>/g, ('<FONT COLOR=\"' + Color + '\">'))
@@ -50,6 +61,16 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 			off() {
 				settings.me.enabled = false
 				mod.command.message('Own whispers coloring disabled.')
+			},
+		},
+		friends: {
+			on() {
+				settings.friends.enabled = true
+				mod.command.message('Friends coloring whispers enabled.')
+			},
+			off() {
+				settings.friends.enabled = false
+				mod.command.message('Friends coloring whispers disabled.')
 			},
 		},
 		others: {

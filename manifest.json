@@ -1,13 +1,18 @@
 {
 	"files": {
-		"index.js": "2af983531bd67959e3e75efe74afa507d3d2fae73d7c1f1c35140087fd104432",
-		"module.json": "c122b1c29f38b942773beab0dfe85b5aa86630768517549b8073823ec8ffca24",
-		"README.html": "01c3658ed0c23f19cc0ad92a851296919a8c5150c355358a8f2f2acee815fe8d",
-		"README.md": "0a493932c21b913f7114e12a701b7de06da06d208e5fd63fb9b7f89e668876d3",
+		"index.js": "fc17b35f291d2a94a8eda1fcf750d139aa88c369b84f196dd26c732b9ebfd7cb",
+		"module.json": "3b0324bc19c412d3fcd1caaad0d3b31f21897ee49f388ef4b8d4865c74be021a",
+		"README.html": "5ded70e5d7e76e037ce27a4ce2a524d56227ca8640246f2657295208214223a9",
+		"README.md": "490c8d96f7e3bbf630a75f9cdbac8f901be761c5f2ecdbad9f0b076b775c40ae",
 		"settings.json": {
 			"overwrite": false,
-			"hash": "f52c6f4336ec7c8b5467dbd80f8b596329ce3b184ceec8fa2be32a57f715af1f"
+			"hash": "35ccca3c74a6b4ef76c8b5436fdf9f7e59d8d601051a4f2e96c93c3b74255476"
 		},
 		"imgs/sample.png": "a087346799161bf08b7689a2df93bc7dbe9552d8eebcb6feca098041b152ed90"
+	},
+	"defs": {
+		"S_WHISPER": 2,
+		"S_FRIEND_LIST": 1,
+		"S_UPDATE_FRIEND_INFO": 1
 	}
 }
