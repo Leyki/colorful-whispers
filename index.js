@@ -1,7 +1,7 @@
 module.exports = function ZelekieColorfulWhispers(mod) {
 
-	const settings = require(`./settings.json`); // todo: migrate settings to caali's format.
-	let friendList = [];
+	const settings = require(`./settings.json`), // todo: migrate settings to caali's format.
+				friendList = {};
 
 	mod.hook('S_WHISPER', 2, { order: 100 }, event => { // Does this even work with potty mouth?
 		if (!settings.globallyEnabled) return;
@@ -20,13 +20,9 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 				}
 			}
 		}
-		if(settings.friends.enabled){ // ...
-			for (let friend of friendList){
-				if(friend.name == event.authorName){
-					event.message = colorMessage(event.message, settings.friends.color);
-					return true;
-				}
-			}
+		if(settings.friends.enabled && friendList[event.authorName]){ // ...
+			event.message = colorMessage(event.message, settings.friends.color);
+			return true;
 		}
 		if(settings.others.enabled){
 			event.message = colorMessage(event.message, settings.others.color);
@@ -34,9 +30,19 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 		}
 	});
 	
-	mod.hook('S_FRIEND_LIST', 1, { order: 100 }, event => { friendList = event.friends; }); // ...
+	/* Dunno if this is needed at all :swblob:
+	mod.hook('S_FRIEND_LIST', 1, { order: 100 }, event => {
+		event.friends.forEach(function(element) { friendList[element.name] = true })
+	})
+	*/
 	
-	mod.hook('S_UPDATE_FRIEND_INFO', 1, { order: 100 }, event => { friendList = event.friends; });
+	// Gather friend list
+	mod.hook('S_UPDATE_FRIEND_INFO', 1, { order: 100 }, event => {
+		event.friends.forEach(function(element) { friendList[element.name] = true })
+	})
+
+	// Clean up past friends :( / WTB S opcode
+	mod.hook('C_DELETE_FRIEND', 1, { order: 100 }, event => { delete friendList[event.name]  })
 	
 	
 	// Simple function to replace <FONT> with the desired color
