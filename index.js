@@ -1,31 +1,30 @@
 module.exports = function ZelekieColorfulWhispers(mod) {
 
-	const settings = require(`./settings.json`), // todo: migrate settings to caali's format.
-				friendList = {};
+				const friendList = {};
 
 	mod.hook('S_WHISPER', 2, { order: 100 }, event => { // Does this even work with potty mouth?
-		if (!settings.globallyEnabled) return;
+		if (!mod.settings.globallyEnabled) return;
 
-		if(mod.game.me.is(event.player) && settings.me.enabled){
+		if(mod.game.me.is(event.player) && mod.settings.me.enabled){
 			// Sent
-			event.message = colorMessage(event.message, settings.me.color);
+			event.message = colorMessage(event.message, mod.settings.me.color);
 			return true;
 		}
 		// Received
-		if(settings.particular.enabled){
-			for (let character of settings.particular.characters){
+		if(mod.settings.particular.enabled){
+			for (let character of mod.settings.particular.characters){
 				if (character.name.includes(event.authorName)){
 					event.message = colorMessage(event.message, character.color);
 					return true;
 				}
 			}
 		}
-		if(settings.friends.enabled && friendList[event.authorName]){ // ...
-			event.message = colorMessage(event.message, settings.friends.color);
+		if(mod.settings.friends.enabled && friendList[event.authorName]){ // ...
+			event.message = colorMessage(event.message, mod.settings.friends.color);
 			return true;
 		}
-		if(settings.others.enabled){
-			event.message = colorMessage(event.message, settings.others.color);
+		if(mod.settings.others.enabled){
+			event.message = colorMessage(event.message, mod.settings.others.color);
 			return true;
 		}
 	});
@@ -46,50 +45,50 @@ module.exports = function ZelekieColorfulWhispers(mod) {
 	// Commands ugly big fat thingy
 	mod.command.add('cw', {
 		on() {
-			settings.globallyEnabled = true
+			mod.settings.globallyEnabled = true
 			mod.command.message('Whispers coloring enabled.')
 		},
 		off() {
-			settings.globallyEnabled = false
+			mod.settings.globallyEnabled = false
 			mod.command.message('Whispers coloring disabled.')
 		},
 		me: {
 			on() {
-				settings.me.enabled = true
+				mod.settings.me.enabled = true
 				mod.command.message('Own whispers coloring enabled.')
 			},
 			off() {
-				settings.me.enabled = false
+				mod.settings.me.enabled = false
 				mod.command.message('Own whispers coloring disabled.')
 			},
 		},
 		friends: {
 			on() {
-				settings.friends.enabled = true
+				mod.settings.friends.enabled = true
 				mod.command.message('Friends coloring whispers enabled.')
 			},
 			off() {
-				settings.friends.enabled = false
+				mod.settings.friends.enabled = false
 				mod.command.message('Friends coloring whispers disabled.')
 			},
 		},
 		others: {
 			on() {
-				settings.others.enabled = true
+				mod.settings.others.enabled = true
 				mod.command.message('Others coloring whispers enabled.')
 			},
 			off() {
-				settings.others.enabled = false
+				mod.settings.others.enabled = false
 				mod.command.message('Others coloring whispers disabled.')
 			},
 		},
 		particular: {
 			on() {
-				settings.particular.enabled = true
+				mod.settings.particular.enabled = true
 				mod.command.message('Particular coloring whispers enabled.')
 			},
 			off() {
-				settings.particular.enabled = false
+				mod.settings.particular.enabled = false
 				mod.command.message('Particular coloring whispers disabled.')
 			},
 		},

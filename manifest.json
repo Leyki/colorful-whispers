@@ -1,14 +1,11 @@
 {
 	"files": {
-		"index.js": "2ec5405e090da76ad4ad9b24d332f70a5d61a8a4c5d734eb50087936e7dd0b0c",
-		"module.json": "3b0324bc19c412d3fcd1caaad0d3b31f21897ee49f388ef4b8d4865c74be021a",
+		"index.js": "0499088dcb8447cfaaf9b7fe3f02b16c33c78e0683fd92f423af14eb44437d72",
+		"module.json": "66d4f9f6bfad2187b9561dc5fc663640fac14bdb6991942a43a5f980ff0b1189",
 		"README.html": "5ded70e5d7e76e037ce27a4ce2a524d56227ca8640246f2657295208214223a9",
 		"README.md": "490c8d96f7e3bbf630a75f9cdbac8f901be761c5f2ecdbad9f0b076b775c40ae",
-		"settings.json": {
-			"overwrite": false,
-			"hash": "437f981f0b1663ea43cd0c08ea87b2208fbce479e3d9885293df2738fc8d5dc0"
-		},
-		"imgs/sample.png": "a087346799161bf08b7689a2df93bc7dbe9552d8eebcb6feca098041b152ed90"
+		"imgs/sample.png": "a087346799161bf08b7689a2df93bc7dbe9552d8eebcb6feca098041b152ed90",
+		"lib/settings_migrator.js": "68cb3dc9114f9853b6c7482d4cb75628c9b6b695a3a2d8544fc6988b8b29c3e0"
 	},
 	"defs": {
 		"S_WHISPER": 2,
