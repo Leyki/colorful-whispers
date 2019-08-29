@@ -4,7 +4,7 @@
     "name": "Colorful Whisper Messages",
     "author": "Leyki / TerableCoder",
     "version": 1.1,
-    "description": "Let's you broadly customize whisper messages with a color of choice and based on different settings of whose whispers must be targeted and whose shouldn't.",
+    "description": "Customize the color of whispers to your own desire based on context.",
     "options": {
         "niceName": "CWhispers",
         "guiName": "Colorful Whisper Messages",
@@ -12,6 +12,5 @@
         "settingsFile": "settings.json",
         "settingsMigrator": "lib/settings_migrator.js"
     },
-    "servers": ["https://raw.githubusercontent.com/Leyki/tera-colorful-whispers/master/"],
-    "donationUrl": "https://Leyki_VK_NA"
+    "servers": ["https://raw.githubusercontent.com/Leyki/tera-colorful-whispers/master/"]
 }
