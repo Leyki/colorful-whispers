@@ -6,10 +6,17 @@ Customize the color of whispers to your own desire based on context. All of this
 
 #### Usage
 
-1. Edit `settings.json` to colorize. `me -> your whispers` | `friends -> your friends whispers` | `others -> other peoples whispers` | `particular -> name specific whispers, you can state them both with a single string or array of strings to target as many people you want in different ways. You'll find examples inside if you have no idea what this means, just follow the syntax.`
+1. Edit `settings.json` to colorize:
+	* `me` - your whispers.
+	* `friends` - your friends whispers.
+	* `others` - other peoples whispers 
+	* `particular` - name specific whispers.
+	
+**particular** target can be stated both with a **single string** or **array of strings**. You'll find examples inside if you have no idea what all of this means, just follow the syntax.
+
 2. There's some commands below, most of them are just bloat.
 
-*What's a hex color?? halp*: https://www.hexcolortool.com/
+*What's a hex color?? halp: https://www.hexcolortool.com/*
 
 
 #### In-game Commands
