@@ -12,7 +12,7 @@ Customize the color of whispers to your own desire based on context. All of this
 	* `others` - other peoples whispers 
 	* `particular` - name specific whispers.
 	
-**particular** target can be stated both with a **single string** or **array of strings**. You'll find examples inside if you have no idea what all of this means, just follow the syntax.
+`particular` target can be stated both with a **single string** or **array of strings**. You'll find examples inside if you have no idea what all of this means, just follow the syntax.
 
 2. There's some commands below, most of them are just bloat.
 
