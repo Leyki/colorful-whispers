@@ -2,7 +2,7 @@ module.exports = function ColorfulWhispers(mod) {
 
 	let friendList = {};
 
-	mod.hook('S_WHISPER', 2, { order: 100 }, event => { // Does this even work with potty mouth?
+	mod.hook('S_WHISPER', 3, { order: 100 }, event => { // Does this even work with potty mouth?
 		if (!mod.settings.globallyEnabled) return;
 
 		if (mod.game.me.is(event.gameId) && mod.settings.me.enabled) {
