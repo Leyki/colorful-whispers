@@ -6,26 +6,24 @@ Customize the color of whispers to your own desire based on context. All of this
 
 #### Usage
 
-1. Edit `settings.json` to colorize:
-	* `me` - your whispers.
-	* `friends` - your friends whispers.
-	* `others` - other peoples whispers 
-	* `particular` - name specific whispers.
+* Edit `settings.json` to colorize:
+  * `me` - your whispers.
+  * `friends` - your friends whispers.
+  * `others` - other peoples whispers 
+  * `particular` - name specific whispers.
 	
 `particular` target can be stated both with a **single string** or **array of strings**. You'll find examples inside if you have no idea what all of this means, just follow the syntax.
-
-2. There's some commands below, most of them are just bloat.
 
 *What's a hex color?? halp: https://www.hexcolortool.com/*
 
 
 #### In-game Commands
 
-* ***`cw`***  *`[on/off]`* turns on and off the whole module functionalities.
+* ***`cw`***  *`[on/off]`* - turns on and off the module.
 ######
-* ***`cw`*** *`[me/friends/others/particular]` `[on/off]`* turns on and off specific module functionalities.
+* ***`cw`*** *`[me/friends/others/particular]` `[on/off]`* turns on and off the specified option.
 ######
-* ***`cw`*** ***`color`*** *`#hexcolor`* just a command to test how colors actually look in-game.
+* ***`cw`*** ***`color`*** *`#hexcolor`* - prints a little message to test colors in-game.
 
 #### Credits
 
