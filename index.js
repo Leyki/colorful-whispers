@@ -1,6 +1,6 @@
 module.exports = function ColorfulWhispers(mod) {
 
-	let friendList = {};
+	const FriendList = {};
 
 	mod.hook('S_WHISPER', 3, { order: 100 }, event => { // Does this even work with potty mouth?
 		if (!mod.settings.globallyEnabled) return;
@@ -19,7 +19,7 @@ module.exports = function ColorfulWhispers(mod) {
 				}
 			}
 		}
-		if (mod.settings.friends.enabled && friendList[event.name]) { // ...
+		if (mod.settings.friends.enabled && FriendList[event.name]) { // ...
 			event.message = colorMessage(event.message, mod.settings.friends.color);
 			return true;
 		}
@@ -30,16 +30,13 @@ module.exports = function ColorfulWhispers(mod) {
 	});
 	// Get & Update relevant friend list
 	mod.hook('S_UPDATE_FRIEND_INFO', 1, event => {
-		const temptFriendlist = {};
-		event.friends.forEach(entry => temptFriendlist[entry.name] = entry.id);
-		if (friendList != temptFriendlist)
-			friendList = temptFriendlist;
+		event.friends.forEach(entry => FriendList[entry.name] = entry.id );
 	})
 	// Clean up past friends :(
 	mod.hook('S_DELETE_FRIEND', 1, event => {
-		for (let [key, value] of Object.entries(friendList))
+		for (let [key, value] of Object.entries(FriendList))
 			if (value === event.id) {
-				delete friendList[key];
+				delete FriendList[key];
 				break;
 			}
 	})
@@ -107,6 +104,6 @@ module.exports = function ColorfulWhispers(mod) {
 			})
 		},
 		$default() { mod.command.message('Read the readme ree.') },
-		$none() { mod.command.message('It seems like someone forgot something!') }
+		$none() { mod.command.message('It seems like someone forgot something.') }
 	})
 }

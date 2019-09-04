@@ -1,13 +1,13 @@
 {
     "disableAutoUpdate": false,
     "disabled": false,
-    "name": "Colorful Whisper Messages",
-    "author": "Leyki / TerableCoder",
+    "name": "colorful-whispers",
+    "author": "Leyki, TerableCoder",
     "version": 1.1,
     "description": "Customize the color of whispers to your own desire based on context.",
     "options": {
-        "niceName": "CWhispers",
-        "guiName": "Colorful Whisper Messages",
+        "niceName": "Colorful Whispers",
+        "guiName": "Colorful Whispers",
         "settingsVersion": 1,
         "settingsFile": "settings.json",
         "settingsMigrator": "lib/settings_migrator.js"
