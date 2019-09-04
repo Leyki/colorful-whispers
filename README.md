@@ -1,6 +1,6 @@
 ### **Intro**
 
-Customize the color of whispers to your own desire based on context. All of this works clientsided. Nothing your client sends is changed.
+Customize the displayed color of whispers to your own desire based on context.
 
 ![Sample](imgs/sample.png)
 
