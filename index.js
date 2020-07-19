@@ -1,8 +1,8 @@
-module.exports = function ColorfulWhispers(mod) {
+exports.NetworkMod = function ColorfulWhispers(mod) {
 
 	const FriendList = {};
 
-	mod.hook('S_WHISPER', 3, { order: 100 }, event => { // Does this even work with potty mouth?
+	mod.hook('S_WHISPER', 3, { order: 100 }, event => {
 		if (!mod.settings.globallyEnabled) return;
 
 		if (mod.game.me.is(event.gameId) && mod.settings.me.enabled) {
@@ -98,12 +98,12 @@ module.exports = function ColorfulWhispers(mod) {
 		},
 		color(Color) {
 			mod.send('S_WHISPER', 3, {
-				name: "some-name",
+				name: "Brandy-chan",
 				recipient: mod.game.me.name,
 				message: '<font color="' + Color + '">Hello 1234567890</font>'
 			})
 		},
-		$default() { mod.command.message('Read the readme ree.') },
-		$none() { mod.command.message('It seems like someone forgot something.') }
+		$default() { mod.command.message('Read the readme, ree.') },
+		$none() { mod.command.message('Boop.') }
 	})
 }
