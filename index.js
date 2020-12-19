@@ -29,7 +29,7 @@ exports.NetworkMod = function ColorfulWhispers(mod) {
 		}
 	});
 	// Get & Update relevant friend list
-	mod.hook('S_UPDATE_FRIEND_INFO', 1, event => {
+	mod.hook('S_UPDATE_FRIEND_INFO', 2, event => {
 		event.friends.forEach(entry => FriendList[entry.name] = entry.id );
 	})
 	// Clean up past friends :(

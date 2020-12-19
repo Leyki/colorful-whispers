@@ -12,5 +12,5 @@
         "settingsFile": "settings.json",
         "settingsMigrator": "lib/settings_migrator.js"
     },
-    "servers": ["https://raw.githubusercontent.com/Leyki/tera-colorful-whispers/master/", "https://raw.githubusercontent.com/Leyki/colorful-whispers/master/"]
+    "servers": ["https://raw.githubusercontent.com/Leyki/colorful-whispers/master/"]
 }
